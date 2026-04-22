@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fug</title>
+    <link>https://xn--qckwd.com/</link>
+    <atom:link href="https://xn--qckwd.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Personal blog of Fug.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Apr 2026 08:23:33 +0000</lastBuildDate>
+    <item>
+      <title>Hello World from フグ.com</title>
+      <link>https://xn--qckwd.com/journal/first-post/</link>
+      <guid isPermaLink="true">https://xn--qckwd.com/journal/first-post/</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Greetings and salutations.</description>
+    </item>
+  </channel>
+</rss>

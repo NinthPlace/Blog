@@ -1,0 +1,367 @@
+/* ==========================================================================
+   フグ.com — all personalization lives in the :root blocks below.
+   Change the colors / sizes / font here and everything else follows.
+   ========================================================================== */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg:      #f5f2eb;
+    --color-bg-alt:  #ece8dd;
+    --color-text:    #1d1f21;
+    --color-light:   #6f6c66;
+    --color-border:  #c9c4b8;
+    --color-accent:  #a3383c;   /* darkened red for light bg */
+    --color-code-bg: #ece8dd;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:      #1d1f21;   /* Tomorrow bg */
+    --color-bg-alt:  #282a2e;   /* Tomorrow bg-alt — post boxes */
+    --color-text:    #e6e2d6;   /* warm ink */
+    --color-light:   #969896;
+    --color-border:  #373b41;
+    --color-accent:  #cc6666;   /* Tomorrow red */
+    --color-code-bg: #0f1214;
+  }
+}
+
+:root {
+  --font-mono:    "Commit Mono", ui-monospace, Menlo, Consolas, monospace;
+  --weight-normal: 400;
+  --weight-bold:   700;
+  --max-width:     720px;
+  --page-padding:  3vw;
+}
+
+@media (max-width: 850px) {
+  :root { --page-padding: 6vw; }
+}
+
+/* ---------- Commit Mono ---------- */
+
+@font-face {
+  font-family: "Commit Mono";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/CommitMono-400-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Commit Mono";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("./fonts/CommitMono-400-Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Commit Mono";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/CommitMono-700-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Commit Mono";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url("./fonts/CommitMono-700-Italic.woff2") format("woff2");
+}
+
+/* ---------- Reset ---------- */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 8px; }   /* 1rem = 8px — sizing below uses this base */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-normal);
+  font-size: 2rem;         /* 16px body */
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-normal);
+  line-height: 1.4;
+  margin: 2em 0 .5em;
+}
+h1 { font-size: 4.4rem; margin: 0 0 .5em; }
+h2 { font-size: 3.4rem; }
+h3 { font-size: 2.8rem; }
+h4 { font-size: 2.4rem; }
+h5 { font-size: 2.2rem; }
+h6 { font-size: 2rem; }
+
+@media (max-width: 500px) {
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2.4rem; }
+  h3 { font-size: 2rem; }
+}
+
+p, ul, ol, blockquote, pre, figure { margin: 0 0 1.5em; }
+
+/* Invert-on-hover links — terminal-selection feel */
+a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  text-decoration-skip-ink: all;
+}
+a:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  text-decoration-color: var(--color-text);
+}
+
+/* Highlighter bold — inverted by default */
+strong, b {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  font-weight: var(--weight-bold);
+  padding: 0 2px;
+}
+strong a { background-color: var(--color-bg); color: var(--color-text); }
+
+em, i { font-style: italic; }
+
+::selection { background: var(--color-accent); color: var(--color-bg); }
+
+/* ---------- Layout ---------- */
+
+.site-wrapper {
+  max-width: var(--max-width);
+  min-height: 100vh;
+  padding: var(--page-padding) var(--page-padding) 6vw;
+  margin: 0;
+}
+
+/* ---------- Header ---------- */
+
+.site-head {
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 2vw;
+  margin-bottom: 6vw;
+}
+.site-head-logo {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 3.1rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text);
+  margin-bottom: 2vw;
+}
+.site-head-logo:hover {
+  background: transparent;
+  color: var(--color-accent);
+}
+.site-nav ul { list-style: none; }
+.site-nav li {
+  display: inline-block;
+  margin-right: 1.5em;
+  font-size: 1.8rem;
+}
+
+/* ---------- Post list (index) ---------- */
+
+.post-entries { list-style: none; }
+
+/* Grey box wrapper — tomorrow-theme post boxes */
+.post-entry {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  padding: 10px 14px 12px;
+  margin: 0 0 8px;
+}
+
+.post-entry-link {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: var(--weight-normal);
+  text-decoration: none;
+}
+.post-entry-link:hover {
+  background: transparent;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+}
+.post-entry-date {
+  float: right;
+  font-size: 1.6rem;
+  color: var(--color-accent);
+  font-weight: var(--weight-normal);
+}
+.post-entry-excerpt {
+  color: var(--color-light);
+  font-size: 1.8rem;
+  margin-top: .3em;
+}
+
+/* Cover image(s) on the index — single is a 180px thumb, multiple
+   lay out in a 3-column grid. Cap to 3 at render time.
+   Grayscale at rest; only the hovered image regains color. */
+.post-entry-cover {
+  display: block;
+  margin: 8px 0;
+}
+.post-entry-cover--single img {
+  width: 180px;
+  height: auto;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter .5s linear;
+}
+.post-entry-link:hover .post-entry-cover--single img {
+  filter: grayscale(0);
+  transition: filter 1s linear;
+}
+.post-entry-cover--grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.post-entry-cover--grid img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter .5s linear;
+}
+.post-entry-cover--grid img:hover {
+  filter: grayscale(0);
+  transition: filter 1s linear;
+}
+
+/* ---------- Post page ---------- */
+
+.post-content { margin-top: 2vw; }
+.post-content-title {
+  font-size: 4rem;
+  margin: 0 0 1em;
+}
+
+/* Blinking block cursor */
+@keyframes blink-cursor { to { opacity: 0; } }
+.post-content-title::after {
+  content: "█";
+  padding-left: 6px;
+  color: var(--color-accent);
+  animation: blink-cursor .9s infinite;
+}
+
+.post-content-meta {
+  color: var(--color-accent);
+  font-size: 1.6rem;
+  margin-bottom: 3em;
+}
+.post-content-body { font-size: 2rem; line-height: 1.75; }
+
+/* In-post image gallery — 3 across, full color, any number allowed */
+.post-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 1.5em 0;
+}
+.post-gallery img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 500px) {
+  .post-entry-cover--grid,
+  .post-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Blockquote */
+blockquote {
+  border-left: 3px solid var(--color-accent);
+  margin: 1.5em 0;
+  padding: .2em 1.5em;
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.post-content-body ul { list-style: square; padding-left: 2em; }
+.post-content-body ol { list-style: decimal; padding-left: 2em; }
+.post-content-body li { margin: .4em 0; }
+
+/* Inline code */
+code {
+  font-family: var(--font-mono);
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-border);
+  padding: 1px 4px;
+  font-size: .9em;
+}
+
+/* Code block */
+pre {
+  background: var(--color-code-bg);
+  border: 2px solid var(--color-border);
+  padding: 1em;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: 1.6rem;
+}
+
+hr, .divider {
+  display: block;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  height: 1px;
+  margin: 3em 0;
+  text-align: center;
+}
+
+/* ---------- Footer ---------- */
+
+.site-foot {
+  border-top: 2px solid var(--color-border);
+  padding-top: 3vw;
+  margin-top: 6vw;
+  font-size: 1.6rem;
+  color: var(--color-light);
+}
+.site-foot a { color: var(--color-light); }
+
+.site-foot-fugu-link {
+  display: inline-block;
+  margin: 0 0 1.5em;
+  text-decoration: none;
+}
+.site-foot-fugu-link:hover { background: transparent; }
+.site-foot-fugu {
+  display: block;
+  width: 96px;
+  height: auto;
+  color: var(--color-light);
+  opacity: .55;
+  transition: opacity .4s ease, color .4s ease;
+}
+.site-foot-fugu-link:hover .site-foot-fugu {
+  opacity: 1;
+  color: var(--color-accent);
+}

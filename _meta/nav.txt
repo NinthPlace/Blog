@@ -1,0 +1,18 @@
+# Nav items. One per line. Format: <slug>  <label>
+#
+# Special slugs (treated differently from categories):
+#   home   -> /
+#   about  -> /about.html
+#   rss    -> /feed.xml
+#
+# Any other slug is treated as a CATEGORY. Make a folder at the repo root
+# with that name and put post subfolders inside it.
+#
+# Lines beginning with # and blank lines are ignored.
+
+home      Home
+journal   Journal
+guides    Guides
+projects  Projects
+about     About
+rss       RSS
